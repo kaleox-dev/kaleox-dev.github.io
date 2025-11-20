@@ -1,57 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>kaleox | Portfolio</title>
-  <link rel="stylesheet" href="styles.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Personal Website</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <header class="header">
-    <div class="logo">kaleox</div>
-    <button class="nav-toggle" aria-label="Toggle navigation">
-      ☰
-    </button>
-    <nav class="nav">
-      <a href="#hero">Home</a>
-      <a href="#portfolio">Portfolio</a>
-    </nav>
-  </header>
+  <div class="container">
 
-  <main>
-    <section id="hero" class="hero">
-      <div class="hero-inner">
-        <h1>kaleox</h1>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer
-          rutrum, metus non convallis tincidunt, odio urna tincidunt justo.
-        </p>
-        <a href="#portfolio" class="btn">View Portfolio</a>
+    <!-- Header section (logo + name + bio) -->
+    <div class="intro">
+      <div class="name-row">
+        <img src="images/logoAA.png" alt="Logo" class="logo">
+
+        <h1 class="name">Alex Sun</h1>
       </div>
-    </section>
 
-    <section id="portfolio" class="portfolio">
+      <!-- Bio -->
+      <p class="bio">
+        ML & SWE Intern @ InferX
+      </p>
+    </div>
+
+    <!-- Portfolio section (centered) -->
+    <section class="portfolio">
       <h2>Portfolio</h2>
-      <div class="portfolio-grid">
-        <article class="portfolio-item">
-          <h3>Project One</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-        </article>
-        <article class="portfolio-item">
-          <h3>Project Two</h3>
-          <p>Curabitur eget lorem sed nisl feugiat aliquet vitae in nunc.</p>
-        </article>
-        <article class="portfolio-item">
-          <h3>Project Three</h3>
-          <p>Donec commodo ligula a risus vehicula, at semper velit bibendum.</p>
-        </article>
-      </div>
+      <ul>
+        <li>Project One</li>
+        <li>Project Two</li>
+        <li>Project Three</li>
+      </ul>
     </section>
-  </main>
 
-  <footer class="footer">
-    <p>© <span id="year"></span> kaleox</p>
-  </footer>
+  </div>
 
   <script src="script.js"></script>
 </body>
