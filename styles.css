@@ -4,38 +4,34 @@
   box-sizing: border-box;
 }
 
-/* Body: full screen, no extra padding */
+/* Body: no flex, just normal document flow */
 body {
   font-family: Inter, Arial, sans-serif;
   background: #ffffff;
   color: #000000;
-
-  display: flex;
-  justify-content: center;   /* center horizontally */
-  align-items: center;       /* center vertically */
-  height: 100vh;             /* use height instead of min-height */
 }
 
-/* Container: add the padding here instead */
+/* Container: centered horizontally, manual top offset */
 .container {
   max-width: 650px;
   width: 100%;
-  padding: 20px;             /* moved from body */
+  padding: 20px;
+  margin: 400px auto 0;   /* ← controls where everything starts */
 }
 
 /* Intro section (logo + name + bio) */
 .intro {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;  
-  margin-bottom: 50px;
+  align-items: flex-start;
+  /* remove margin-top here, container already has top margin */
 }
 
 /* Name + logo row */
 .name-row {
   display: flex;
   align-items: center;     /* vertically align them */
-  gap: 5px;               /* space between name and logo */
+  gap: 5px;                /* space between name and logo */
 }
 
 /* Name styling */
@@ -45,9 +41,9 @@ body {
   margin: 0;
 }
 
-/* Logo next to name (same height as text) */
+/* Logo next to name */
 .logo {
-  height: 5rem;          /* match name's size */
+  height: 5rem;            /* adjust as you like */
   width: auto;             /* keep natural aspect ratio */
   object-fit: contain;
 }
@@ -57,44 +53,57 @@ body {
   font-size: 1rem;
   line-height: 1.5;
   max-width: 500px;
-  text-align: left;      
+  text-align: left;
+  margin-top: 16px;
   margin-bottom: 40px;
   opacity: 0.9;
 }
 
-/* Portfolio (center aligned) */
+/* Portfolio section centered */
 .portfolio {
-  text-align: center;   
+  text-align: center;
 }
 
-.portfolio h2 {
-  font-size: 1.3rem;
-  margin-bottom: 15px;
-  font-weight: 500;
+/* Two-column grid */
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  text-align: left;
+  margin-top: 20px;
 }
 
-.portfolio ul {
+/* Column titles */
+.portfolio-column h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* List styling */
+.portfolio-column ul {
   list-style: none;
+  padding-left: 0;
 }
 
-.portfolio li {
-  padding: 12px 0;
-  border-bottom: 1px solid #222;
+.portfolio-column li {
+  margin-bottom: 8px;
   font-size: 1rem;
-  letter-spacing: 0.5px;
+  opacity: 0.9;
 }
 
-.portfolio li:last-child {
-  border-bottom: none;
+/* Mobile: stacks vertically */
+@media (max-width: 600px) {
+  .portfolio-grid {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
 }
 
 /* Mobile tweaks */
 @media (max-width: 480px) {
-  .logo {
-    width: 90px;
-    height: 90px;
-  }
-
   .name {
     font-size: 1.8rem;
   }
@@ -102,4 +111,39 @@ body {
   .bio {
     font-size: 0.95rem;
   }
+
+  /* optional: make logo a bit smaller on tiny screens */
+  .logo {
+    height: 3.5rem;
+  }
+}
+
+.socials {
+  display: flex;
+  gap: 10px;
+  margin-top: -10px;
+  margin-bottom: 40px;
+}
+
+.social-btn {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  border: 1.5px solid #777;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease;
+}
+
+.social-btn:hover {
+  background-color: #000;
+  border-color: #000;
+  color: #fff;
+}
+
+.icon {
+  width: 22px;
+  height: 22px;
+  stroke: currentColor;
 }
