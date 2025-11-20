@@ -4,19 +4,25 @@
   box-sizing: border-box;
 }
 
-/* Body: no flex, just normal document flow */
 body {
   font-family: Inter, Arial, sans-serif;
   background: #ffffff;
   color: #000000;
+  height: 100vh;
+  margin: 0;
+  overflow: hidden; /* prevents scroll */
+  position: relative; /* required for absolute child */
 }
 
-/* Container: centered horizontally, manual top offset */
+/* Vertically centered container */
 .container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); 
   max-width: 650px;
   width: 100%;
   padding: 20px;
-  margin: 400px auto 0;   /* ← controls where everything starts */
 }
 
 /* Intro section (logo + name + bio) */
@@ -138,12 +144,12 @@ body {
 
 .social-btn:hover {
   background-color: #000;
-  border-color: #000;
+  border-color: #ffffff;
   color: #fff;
 }
 
 .icon {
   width: 22px;
   height: 22px;
-  stroke: currentColor;
+  stroke: #b3c5fc;
 }
